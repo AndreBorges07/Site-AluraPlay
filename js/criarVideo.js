@@ -15,10 +15,14 @@ async function criarVideo(evento) {
     //A descrição com o número de visualizações não pode ficar na conta do usuário de cadastrar. Por não termos um contador, vai pegar um número aleatório e multiplicar por 10. 
 
     const descricao = Math.floor(Math.random() * 10).toString();
+    try {
 
-    await conectaApi.criaVideo(titulo, descricao, url, imagem); // a ordem é importante
+        await conectaApi.criaVideo(titulo, descricao, url, imagem); // a ordem é importante
 
-    window.location.href = "../pages/envio-concluido.html"; //depois de enviado, irá direcionar para essa tela. 
+        window.location.href = "../pages/envio-concluido.html"; //depois de enviado, irá direcionar para essa tela. 
+    }catch{
+        
+    }
 }
 
 formulario.addEventListener("submit", elemento => criarVideo(elemento));
